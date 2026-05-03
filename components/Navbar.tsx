@@ -16,9 +16,18 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#003087] shadow-lg">
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3">
-          <Image src="/logo.svg" alt="Jomlia Logo" width={44} height={44} priority />
-          <span className="text-white font-black text-xl tracking-wide hidden sm:block">JOMLIA</span>
+        <a href="#" className="flex items-center gap-3 shrink-0">
+          <Image
+            src="/logo.svg"
+            alt="Jomlia Solution Services"
+            width={44}
+            height={44}
+            priority
+            className="h-10 w-10 object-contain block shrink-0"
+          />
+          <span className="text-white font-black text-xl leading-none tracking-wide hidden sm:block">
+            JOMLIA
+          </span>
         </a>
 
         {/* Desktop nav */}

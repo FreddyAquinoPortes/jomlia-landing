@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jomlia Solution Services | Aires Acondicionados Santo Domingo</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        navy:  '#003087',
+        jred:  '#CC0000',
+        jblue: '#1B5EAD',
+        dark:  '#1A1A2E',
+      }
+    }
+  }
+}
+</script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+* { font-family: 'Inter', system-ui, sans-serif; }
+html { scroll-behavior: smooth; }
+
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(28px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.anim-fade-up    { animation: fadeInUp .65s ease-out both; }
+.anim-fade-up-d1 { animation: fadeInUp .65s .12s ease-out both; }
+.anim-fade-up-d2 { animation: fadeInUp .65s .24s ease-out both; }
+.anim-fade-up-d3 { animation: fadeInUp .65s .36s ease-out both; }
+.anim-marquee    { animation: marquee 30s linear infinite; }
+</style>
+</head>
+<body class="bg-white text-[#1A1A2E]">
+
+<!-- ===== NAVBAR ===== -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#003087] shadow-lg">
+  <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
+    <a href="#" class="flex items-center gap-3 shrink-0">
+      <img src="logo.svg" alt="Jomlia Solution Services" width="40" height="40"
+           class="h-10 w-10 object-contain block shrink-0" decoding="async"/>
+      <span class="text-white font-black text-xl leading-none tracking-wide hidden sm:block">JOMLIA</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#servicios" class="text-white/85 hover:text-white text-sm font-medium transition-colors">Servicios</a>
+      <a href="#nosotros"  class="text-white/85 hover:text-white text-sm font-medium transition-colors">Nosotros</a>
+      <a href="#marcas"    class="text-white/85 hover:text-white text-sm font-medium transition-colors">Marcas</a>
+      <a href="#contacto"  class="text-white/85 hover:text-white text-sm font-medium transition-colors">Contacto</a>
+      <a href="https://wa.me/18496581250" target="_blank"
+         class="bg-[#CC0000] hover:bg-[#aa0000] text-white text-sm font-bold px-5 py-2 rounded transition-colors">
+        Contáctanos
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="inicio" class="relative min-h-screen flex items-center justify-center overflow-hidden"
+  style="background:linear-gradient(135deg,#003087 0%,#001a50 50%,#4a0000 85%,#CC0000 100%)">
+  <!-- Grid overlay -->
+  <div class="absolute inset-0 opacity-5 pointer-events-none"
+       style="background-image:repeating-linear-gradient(0deg,#fff 0,#fff 1px,transparent 1px,transparent 60px),repeating-linear-gradient(90deg,#fff 0,#fff 1px,transparent 1px,transparent 60px)"></div>
+  <!-- Circles -->
+  <div class="absolute top-20 right-10 w-80 h-80 rounded-full border border-white/5"></div>
+  <div class="absolute top-32 right-20 w-56 h-56 rounded-full border border-white/5"></div>
+  <div class="absolute -bottom-20 -left-20 w-96 h-96 rounded-full" style="background:rgba(255,255,255,0.03)"></div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 pt-20 pb-16 text-center">
+    <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-8 anim-fade-up">
+      <span class="w-2 h-2 rounded-full bg-[#CC0000] animate-pulse"></span>
+      <span class="text-white/80 text-sm font-medium">Santo Domingo, República Dominicana</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl font-black text-white leading-tight tracking-tight mb-6 anim-fade-up-d1">
+      Confort y Soluciones<br>
+      <span class="text-[#ff8080]">para tu Hogar</span><br>
+      y Negocio
+    </h1>
+    <p class="text-white/75 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed anim-fade-up-d2">
+      Instalación, mantenimiento y venta de aires acondicionados de las mejores marcas.
+      Tu tranquilidad es nuestra misión.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center anim-fade-up-d3">
+      <a href="#contacto"
+         class="bg-[#CC0000] hover:bg-[#aa0000] text-white font-bold px-8 py-4 rounded text-base uppercase tracking-wider transition-all hover:-translate-y-0.5 shadow-lg" style="box-shadow:0 8px 24px rgba(204,0,0,0.3)">
+        Solicitar Cotización
+      </a>
+      <a href="#servicios"
+         class="border-2 border-white/50 hover:border-white text-white font-bold px-8 py-4 rounded text-base uppercase tracking-wider transition-all hover:bg-white/10">
+        Ver Servicios
+      </a>
+    </div>
+    <!-- Stats -->
+    <div class="mt-20 grid grid-cols-3 gap-6 max-w-2xl mx-auto">
+      <div class="text-center"><div class="text-3xl font-black text-white">10+</div><div class="text-white/60 text-xs mt-1">Categorías de Servicio</div></div>
+      <div class="text-center"><div class="text-3xl font-black text-white">6</div><div class="text-white/60 text-xs mt-1">Marcas Distribuidoras</div></div>
+      <div class="text-center"><div class="text-3xl font-black text-white">24/7</div><div class="text-white/60 text-xs mt-1">Soporte disponible</div></div>
+    </div>
+  </div>
+  <!-- Wave -->
+  <div class="absolute bottom-0 left-0 right-0 overflow-hidden leading-none">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" class="w-full">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#ffffff"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== SERVICIOS ===== -->
+<section id="servicios" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-[#CC0000] text-sm font-bold tracking-widest uppercase">Lo que hacemos</span>
+      <h2 class="text-4xl md:text-5xl font-black text-[#1A1A2E] mt-2">Soluciones Completas</h2>
+      <p class="text-gray-500 mt-4 max-w-xl mx-auto">Desde la instalación hasta el mantenimiento especializado. Una sola empresa para todas tus necesidades de climatización.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Card 1 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1" style="border-top:4px solid #003087">
+        <div class="text-4xl mb-4">❄️</div>
+        <h3 class="text-lg font-black text-[#1A1A2E] mb-4">Instalación y Desmonte</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#003087]"></span>Instalación de aires acondicionados</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#003087]"></span>Desmonte e instalación</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#003087]"></span>Instalación de luminarias</li>
+        </ul>
+        <a href="https://wa.me/18496581250" target="_blank" class="inline-block mt-6 text-sm font-bold text-[#003087] hover:underline">Cotizar este servicio →</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1" style="border-top:4px solid #CC0000">
+        <div class="text-4xl mb-4">🔧</div>
+        <h3 class="text-lg font-black text-[#1A1A2E] mb-4">Mantenimiento y Reparación</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#CC0000]"></span>Mantenimiento correctivo</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#CC0000]"></span>Reparación de tarjetas electrónicas</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#CC0000]"></span>Mantenimiento preventivo</li>
+        </ul>
+        <a href="https://wa.me/18496581250" target="_blank" class="inline-block mt-6 text-sm font-bold text-[#CC0000] hover:underline">Cotizar este servicio →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1" style="border-top:4px solid #1B5EAD">
+        <div class="text-4xl mb-4">⚡</div>
+        <h3 class="text-lg font-black text-[#1A1A2E] mb-4">Electricidad y Suministros</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#1B5EAD]"></span>Electricidad en general</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#1B5EAD]"></span>Suministros para aires y luminarias</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#1B5EAD]"></span>Termostatos y breakers</li>
+        </ul>
+        <a href="https://wa.me/18496581250" target="_blank" class="inline-block mt-6 text-sm font-bold text-[#1B5EAD] hover:underline">Cotizar este servicio →</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1" style="border-top:4px solid #003087">
+        <div class="text-4xl mb-4">🏪</div>
+        <h3 class="text-lg font-black text-[#1A1A2E] mb-4">Variedad de Productos</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#003087]"></span>Aires acondicionados</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#003087]"></span>Luminarias y lámparas</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#003087]"></span>Materiales eléctricos y refrigeración</li>
+        </ul>
+        <a href="https://wa.me/18496581250" target="_blank" class="inline-block mt-6 text-sm font-bold text-[#003087] hover:underline">Cotizar este servicio →</a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1" style="border-top:4px solid #CC0000">
+        <div class="text-4xl mb-4">🏭</div>
+        <h3 class="text-lg font-black text-[#1A1A2E] mb-4">Mantenimientos Especializados</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#CC0000]"></span>Cuartos fríos</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#CC0000]"></span>Plantas eléctricas</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#CC0000]"></span>Mantenimiento predictivo y preventivo</li>
+        </ul>
+        <a href="https://wa.me/18496581250" target="_blank" class="inline-block mt-6 text-sm font-bold text-[#CC0000] hover:underline">Cotizar este servicio →</a>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="group bg-white border border-gray-100 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1" style="border-top:4px solid #1B5EAD">
+        <div class="text-4xl mb-4">🛡️</div>
+        <h3 class="text-lg font-black text-[#1A1A2E] mb-4">Servicios Adicionales</h3>
+        <ul class="space-y-2">
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#1B5EAD]"></span>Fumigación</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#1B5EAD]"></span>Aplicación anticorrosiva</li>
+          <li class="flex items-start gap-2 text-sm text-gray-600"><span class="mt-1 w-1.5 h-1.5 rounded-full flex-shrink-0 bg-[#1B5EAD]"></span>Asesoría en tamaño de aires</li>
+        </ul>
+        <a href="https://wa.me/18496581250" target="_blank" class="inline-block mt-6 text-sm font-bold text-[#1B5EAD] hover:underline">Cotizar este servicio →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== NOSOTROS ===== -->
+<section id="nosotros" class="py-24 bg-[#F5F5F5]">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <!-- Visual -->
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden aspect-video flex items-center justify-center relative"
+             style="background:linear-gradient(135deg,#003087 0%,#001a50 100%)">
+          <div class="absolute inset-0 opacity-10"
+               style="background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 1px,transparent 12px)"></div>
+          <div class="relative z-10 text-center px-8">
+            <div class="text-7xl mb-4">🏢</div>
+            <p class="text-white font-bold text-xl">Jomlia Solution Services</p>
+            <p class="text-white/60 text-sm mt-2">Av. Yolanda Guzmán Esq. Samaná #126<br>Santo Domingo, RD</p>
+          </div>
+          <div class="absolute bottom-0 left-0 right-0 h-2 bg-[#CC0000]"></div>
+        </div>
+        <!-- Badge -->
+        <div class="absolute -bottom-5 -right-5 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3">
+          <div class="w-12 h-12 rounded-full bg-[#003087] flex items-center justify-center text-white text-2xl">❄️</div>
+          <div>
+            <div class="font-black text-[#1A1A2E] text-sm">Técnicos Certificados</div>
+            <div class="text-gray-400 text-xs">Listos para servirte</div>
+          </div>
+        </div>
+      </div>
+      <!-- Text -->
+      <div>
+        <span class="text-[#CC0000] text-sm font-bold tracking-widest uppercase">Quiénes somos</span>
+        <h2 class="text-4xl md:text-5xl font-black text-[#1A1A2E] mt-2 mb-6 leading-tight">
+          Somos tu Socio en el Bienestar y la Comodidad
+        </h2>
+        <p class="text-gray-600 leading-relaxed mb-6">
+          En Jomlia Solution Services nos especializamos en soluciones integrales de climatización, electricidad y refrigeración. Desde la instalación meticulosa de aires acondicionados hasta el mantenimiento experto de plantas eléctricas y cuartos fríos.
+        </p>
+        <p class="text-gray-600 leading-relaxed mb-10">
+          Cada rincón de tus espacios recibe la dedicación que merece. No solo colocamos equipos, sino que creamos ambientes donde cada respiración es sinónimo de confort.
+        </p>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+            <div class="text-2xl mb-2">🎯</div>
+            <div class="font-black text-[#003087] text-sm mb-1">Visión</div>
+            <div class="text-gray-500 text-xs leading-relaxed">Ser líderes en soluciones de climatización en RD.</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+            <div class="text-2xl mb-2">⚡</div>
+            <div class="font-black text-[#003087] text-sm mb-1">Urgencia</div>
+            <div class="text-gray-500 text-xs leading-relaxed">Atención con sentido de urgencia y respuesta inmediata.</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+            <div class="text-2xl mb-2">🏆</div>
+            <div class="font-black text-[#003087] text-sm mb-1">Excelencia</div>
+            <div class="text-gray-500 text-xs leading-relaxed">Siguiendo los más altos estándares de profesionalismo.</div>
+          </div>
+          <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
+            <div class="text-2xl mb-2">🤝</div>
+            <div class="font-black text-[#003087] text-sm mb-1">Comunidad</div>
+            <div class="text-gray-500 text-xs leading-relaxed">Tu socio en el bienestar y la comodidad.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MARCAS ===== -->
+<section id="marcas" class="py-16 bg-white border-t border-b border-gray-100 overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 mb-10 text-center">
+    <span class="text-gray-400 text-sm font-bold tracking-widest uppercase">Marcas que distribuimos</span>
+    <h2 class="text-2xl font-black text-[#1A1A2E] mt-2">Trabajamos con las Mejores Marcas</h2>
+  </div>
+  <div class="relative flex overflow-hidden">
+    <div class="flex anim-marquee gap-10 whitespace-nowrap">
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">ComfortStar</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">AirMax</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">Lennox</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">TGM</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">Comfort Time</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">GAir</span></div>
+      <!-- Duplicated for seamless loop -->
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">ComfortStar</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">AirMax</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">Lennox</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">TGM</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">Comfort Time</span></div>
+      <div class="flex items-center justify-center px-8 py-3 rounded-lg bg-gray-50 border border-gray-200 min-w-[140px]"><span class="font-black text-[#003087] text-lg">GAir</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA SECTION ===== -->
+<section class="relative py-20 overflow-hidden" style="background:#CC0000">
+  <div class="absolute inset-0 opacity-10 pointer-events-none"
+       style="background-image:repeating-linear-gradient(-45deg,#fff 0,#fff 1px,transparent 1px,transparent 20px)"></div>
+  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-3xl md:text-5xl font-black text-white mb-4">
+      ¿Necesitas un Mantenimiento o Instalación?
+    </h2>
+    <p class="text-white/80 text-lg mb-10 max-w-xl mx-auto">
+      Cotiza con nosotros hoy mismo. Técnicos certificados, respuesta rápida e instalaciones con criterio y calidad.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
+      <a href="https://wa.me/18496581250" target="_blank"
+         class="flex items-center gap-3 bg-white text-[#CC0000] font-black px-8 py-4 rounded text-base uppercase tracking-wider hover:bg-gray-100 transition-all shadow-xl">
+        <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.126 1.523 5.867L.057 23.88a.5.5 0 00.617.617l6.001-1.461A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.66-.523-5.178-1.434l-.37-.22-3.832.932.95-3.74-.24-.388A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+        </svg>
+        Contáctanos por WhatsApp
+      </a>
+      <div class="text-white/90">
+        <div class="text-3xl font-black">(849) 658-1250</div>
+        <div class="text-sm text-white/60">Llámanos directamente</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACTO ===== -->
+<section id="contacto" class="py-24 bg-[#F5F5F5]">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-[#CC0000] text-sm font-bold tracking-widest uppercase">Encuéntranos</span>
+      <h2 class="text-4xl md:text-5xl font-black text-[#1A1A2E] mt-2">Visítanos o Contáctanos</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      <!-- Info + Form -->
+      <div class="flex flex-col gap-4">
+        <div class="flex gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <div class="text-3xl">📍</div>
+          <div><div class="font-black text-[#003087] text-sm mb-1">Dirección</div>
+          <div class="text-gray-600 text-sm">Av. Yolanda Guzmán Esquina Samaná #126<br>Santo Domingo, RD</div></div>
+        </div>
+        <div class="flex gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <div class="text-3xl">📞</div>
+          <div><div class="font-black text-[#003087] text-sm mb-1">Teléfono</div>
+          <div class="text-gray-600 text-sm">(849) 658-1250</div></div>
+        </div>
+        <div class="flex gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <div class="text-3xl">✉️</div>
+          <div><div class="font-black text-[#003087] text-sm mb-1">Correo</div>
+          <div class="text-gray-600 text-sm">proyectos@jomlia.com<br>operacionesjomlia@gmail.com</div></div>
+        </div>
+        <div class="flex gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100">
+          <div class="text-3xl">📱</div>
+          <div><div class="font-black text-[#003087] text-sm mb-1">Instagram</div>
+          <div class="text-gray-600 text-sm">@Jomlia.srl</div></div>
+        </div>
+        <!-- Form -->
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mt-2">
+          <h3 class="font-black text-[#1A1A2E] mb-4">Solicitar Cotización</h3>
+          <form class="flex flex-col gap-3">
+            <input type="text" placeholder="Tu nombre" class="border border-gray-200 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#003087] transition-colors"/>
+            <input type="tel" placeholder="Teléfono / WhatsApp" class="border border-gray-200 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#003087] transition-colors"/>
+            <select class="border border-gray-200 rounded px-4 py-2.5 text-sm text-gray-600 focus:outline-none focus:border-[#003087]">
+              <option>Tipo de servicio</option>
+              <option>Instalación de aires</option>
+              <option>Mantenimiento preventivo</option>
+              <option>Mantenimiento correctivo</option>
+              <option>Electricidad y suministros</option>
+              <option>Cuartos fríos / Plantas eléctricas</option>
+              <option>Fumigación</option>
+              <option>Otro</option>
+            </select>
+            <textarea placeholder="Describe brevemente tu necesidad…" rows="3" class="border border-gray-200 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#003087] resize-none"></textarea>
+            <button type="submit" class="bg-[#CC0000] hover:bg-[#aa0000] text-white font-bold py-3 rounded text-sm uppercase tracking-wider transition-colors">
+              Enviar Solicitud
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Map -->
+      <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-200" style="min-height:500px">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d962.1!2d-69.9312!3d18.4861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eaf89f4a9f7a7b1%3A0x0!2sAv.+Yolanda+Guzm%C3%A1n+Esq.+Saman%C3%A1+%23126%2C+Santo+Domingo!5e0!3m2!1ses!2sdo!4v1683000000000"
+          width="100%" height="100%" style="border:0;min-height:500px" allowfullscreen loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade" title="Ubicación Jomlia"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bg-[#1A1A2E] text-white pt-16 pb-8">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="logo.svg" alt="Jomlia Solution Services" width="48" height="48"/>
+          <div>
+            <div class="font-black text-xl">JOMLIA</div>
+            <div class="text-white/50 text-xs">SOLUTION SERVICES</div>
+          </div>
+        </div>
+        <p class="text-white/60 text-sm leading-relaxed max-w-xs">Tu socio en el bienestar y la comodidad. Líderes en climatización, electricidad y refrigeración en Santo Domingo.</p>
+      </div>
+      <div>
+        <h4 class="font-black text-sm uppercase tracking-widest mb-4 text-white/80">Servicios</h4>
+        <ul class="space-y-2 text-sm text-white/60">
+          <li>Instalación de Aires Acondicionados</li>
+          <li>Mantenimiento Preventivo</li>
+          <li>Mantenimiento Correctivo</li>
+          <li>Electricidad y Suministros</li>
+          <li>Cuartos Fríos y Plantas Eléctricas</li>
+          <li>Fumigación y Anticorrosivo</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-black text-sm uppercase tracking-widest mb-4 text-white/80">Contacto</h4>
+        <ul class="space-y-3 text-sm text-white/60">
+          <li>📍 Av. Yolanda Guzmán Esq. Samaná #126, Santo Domingo</li>
+          <li>📞 (849) 658-1250</li>
+          <li>✉️ proyectos@jomlia.com</li>
+          <li>📱 @Jomlia.srl</li>
+        </ul>
+        <a href="https://wa.me/18496581250" target="_blank"
+           class="inline-flex items-center gap-2 mt-5 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.126 1.523 5.867L.057 23.88a.5.5 0 00.617.617l6.001-1.461A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.66-.523-5.178-1.434l-.37-.22-3.832.932.95-3.74-.24-.388A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-white/40 text-xs">
+      <span>© 2025 Jomlia Solution Services. Todos los derechos reservados.</span>
+      <span>Diseñado para tu confort. 🇩🇴</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp Float -->
+<a href="https://wa.me/18496581250" target="_blank" aria-label="WhatsApp"
+   class="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#1ebe5d] rounded-full flex items-center justify-center shadow-2xl transition-all hover:scale-110">
+  <svg viewBox="0 0 24 24" class="w-7 h-7 fill-white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.553 4.126 1.523 5.867L.057 23.88a.5.5 0 00.617.617l6.001-1.461A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.66-.523-5.178-1.434l-.37-.22-3.832.932.95-3.74-.24-.388A9.96 9.96 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+</body>
+</html>
