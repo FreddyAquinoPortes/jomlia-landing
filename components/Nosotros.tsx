@@ -1,3 +1,12 @@
+"use client";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+
+const slides = [
+  { src: "/slider/slider-1.jpg", alt: "Equipo Jomlia en obra" },
+  { src: "/slider/slider-2.jpg", alt: "Instalación profesional Jomlia" },
+];
+
 const valores = [
   { icon: "🎯", titulo: "Visión", desc: "Ser líderes en soluciones de climatización en República Dominicana." },
   { icon: "⚡", titulo: "Urgencia", desc: "Atención al cliente con sentido de urgencia y respuesta inmediata." },
@@ -6,31 +15,61 @@ const valores = [
 ];
 
 export default function Nosotros() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setActive((i) => (i + 1) % slides.length), 4500);
+    return () => clearInterval(id);
+  }, []);
+
   return (
     <section id="nosotros" className="py-24 bg-[#F5F5F5]">
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Image placeholder with brand visual */}
+          {/* Left: Auto-rotating image slider */}
           <div className="relative">
-            <div
-              className="rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center relative"
-              style={{ background: "linear-gradient(135deg, #003087 0%, #001a50 100%)" }}
-            >
-              {/* Decorative pattern */}
-              <div
-                className="absolute inset-0 opacity-10"
-                style={{
-                  backgroundImage: "repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 1px, transparent 12px)",
-                }}
-              />
-              <div className="relative z-10 text-center px-8">
-                <div className="text-8xl mb-4">🏢</div>
-                <p className="text-white font-bold text-xl">Jomlia Solution Services</p>
-                <p className="text-white/60 text-sm mt-2">Av. Yolanda Guzmán Esq. Samaná #126<br />Santo Domingo, RD</p>
+            <div className="rounded-2xl overflow-hidden aspect-[4/3] relative shadow-xl">
+              {/* Slides */}
+              {slides.map((s, i) => (
+                <Image
+                  key={s.src}
+                  src={s.src}
+                  alt={s.alt}
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  priority={i === 0}
+                  className={`object-cover transition-opacity duration-1000 ease-in-out ${
+                    i === active ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
+
+              {/* Bottom gradient for legibility */}
+              <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/85 via-black/45 to-transparent pointer-events-none" />
+
+              {/* Dots */}
+              <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActive(i)}
+                    aria-label={`Ir a imagen ${i + 1}`}
+                    className={`h-2 rounded-full transition-all ${
+                      i === active ? "w-8 bg-white" : "w-2 bg-white/50 hover:bg-white/80"
+                    }`}
+                  />
+                ))}
               </div>
 
-              {/* Red accent bar */}
-              <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#CC0000]" />
+              {/* Red strip with text */}
+              <div className="absolute bottom-0 left-0 right-0 bg-[#CC0000] px-6 py-4 z-10">
+                <div className="text-white font-black text-base sm:text-lg leading-tight">
+                  Jomlia Solution Services
+                </div>
+                <div className="text-white/85 text-xs sm:text-sm mt-0.5">
+                  Av. Yolanda Guzmán Esq. Samaná #126 · Santo Domingo, RD
+                </div>
+              </div>
             </div>
 
             {/* Floating badge */}
