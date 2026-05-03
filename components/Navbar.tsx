@@ -18,7 +18,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="#" className="flex items-center gap-3 shrink-0">
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="Jomlia Solution Services"
             width={44}
             height={44}
