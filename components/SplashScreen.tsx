@@ -85,24 +85,52 @@ export default function SplashScreen({ duration = 3000, onFinish }: Props) {
         }}
       />
 
-      {/* Cold particles (fade in past 50%) */}
+      {/* Embers (hot phase) */}
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ opacity: Math.max(0, (progress - 0.5) * 2) }}
+        className="absolute inset-0 pointer-events-none overflow-hidden"
+        style={{ opacity: Math.max(0, 1 - progress * 1.8) }}
       >
-        {Array.from({ length: 24 }).map((_, i) => (
+        {Array.from({ length: 28 }).map((_, i) => {
+          const size = 2 + (i % 4);
+          return (
+            <span
+              key={i}
+              className="absolute rounded-full"
+              style={{
+                width: `${size}px`,
+                height: `${size}px`,
+                left: `${(i * 37) % 100}%`,
+                top: `-10px`,
+                background:
+                  "radial-gradient(circle, #fff5b0 0%, #ffae33 35%, #ff3a1f 70%, transparent 100%)",
+                boxShadow: "0 0 8px 2px rgba(255,120,40,0.6)",
+                animation: `emberFall ${3.5 + (i % 5) * 0.6}s linear ${i * 0.12}s infinite`,
+              }}
+            />
+          );
+        })}
+      </div>
+
+      {/* Snowflakes (cold phase) */}
+      <div
+        className="absolute inset-0 pointer-events-none overflow-hidden"
+        style={{ opacity: Math.max(0, (progress - 0.45) * 2) }}
+      >
+        {Array.from({ length: 26 }).map((_, i) => (
           <span
             key={i}
-            className="absolute rounded-full bg-sky-200/70"
+            className="absolute text-sky-100"
             style={{
-              width: `${2 + (i % 4)}px`,
-              height: `${2 + (i % 4)}px`,
               left: `${(i * 53) % 100}%`,
-              top: `-10px`,
-              animation: `frostFall ${4 + (i % 5)}s linear ${i * 0.15}s infinite`,
-              filter: "blur(0.5px)",
+              top: `-20px`,
+              fontSize: `${10 + (i % 5) * 3}px`,
+              opacity: 0.7 + ((i % 3) * 0.1),
+              filter: "drop-shadow(0 0 4px rgba(186,230,253,0.7))",
+              animation: `snowFall ${6 + (i % 6)}s linear ${i * 0.2}s infinite`,
             }}
-          />
+          >
+            ❄
+          </span>
         ))}
       </div>
 
@@ -198,10 +226,17 @@ export default function SplashScreen({ duration = 3000, onFinish }: Props) {
           0%   { transform: translateY(0); }
           100% { transform: translateY(-6px); }
         }
-        @keyframes frostFall {
-          0%   { transform: translateY(0) translateX(0); opacity: 0; }
+        @keyframes emberFall {
+          0%   { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
           10%  { opacity: 1; }
-          100% { transform: translateY(110vh) translateX(20px); opacity: 0; }
+          50%  { transform: translateY(50vh) translateX(-8px) scale(1); }
+          100% { transform: translateY(110vh) translateX(8px) scale(0.4); opacity: 0; }
+        }
+        @keyframes snowFall {
+          0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
+          10%  { opacity: 1; }
+          50%  { transform: translateY(55vh) translateX(20px) rotate(180deg); }
+          100% { transform: translateY(110vh) translateX(-20px) rotate(360deg); opacity: 0; }
         }
       `}</style>
     </div>
