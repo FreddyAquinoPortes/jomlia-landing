@@ -72,8 +72,8 @@ export default function Nosotros() {
               </div>
             </div>
 
-            {/* Floating badge */}
-            <div className="absolute -bottom-5 -right-5 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3">
+            {/* Floating badge — sits over the slider, above the red strip */}
+            <div className="absolute bottom-24 right-4 z-30 bg-white rounded-xl shadow-xl p-3 sm:p-4 flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-[#003087] flex items-center justify-center text-white text-2xl">
                 ❄️
               </div>
