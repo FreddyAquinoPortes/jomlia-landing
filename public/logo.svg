@@ -36,9 +36,6 @@
     </clipPath>
   </defs>
 
-  <!-- ── White background ── -->
-  <rect width="300" height="300" fill="white"/>
-
   <!-- ── Blue diamond (base fill) ── -->
   <polygon points="150,8 292,150 150,292 8,150" fill="url(#diamondGrad)"/>
   <!-- Diamond edge shading overlay -->

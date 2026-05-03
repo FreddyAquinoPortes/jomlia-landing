@@ -23,6 +23,7 @@ export default function Navbar() {
             width={44}
             height={44}
             priority
+            loading="eager"
             className="h-10 w-10 object-contain block shrink-0"
           />
           <span className="text-white font-black text-xl leading-none tracking-wide hidden sm:block">
