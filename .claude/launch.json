@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "jomlia-web",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "cwd": "/home/anubis/GoogleDrive/jomlia/Desarrollo/jomlia-web",
+      "port": 3000
+    }
+  ]
+}
