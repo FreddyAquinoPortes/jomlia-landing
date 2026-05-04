@@ -88,9 +88,23 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-2 text-white/40 text-xs">
-          <span>© {year} Jomlia Solution Services. Todos los derechos reservados.</span>
-          <span>Diseñado para tu confort. 🇩🇴</span>
+        <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-white/40 text-xs">
+          <span>© {year} Jomlia Solution Services &amp; Getwavely. Todos los derechos reservados.</span>
+          <a
+            href="https://getwavely.online/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 hover:text-white/80 transition-colors group"
+          >
+            <span className="text-white/30 group-hover:text-white/60 transition-colors">Powered by</span>
+            <Image
+              src="/getwavely_logo.png"
+              alt="Getwavely"
+              width={80}
+              height={20}
+              className="object-contain opacity-40 group-hover:opacity-80 transition-opacity"
+            />
+          </a>
         </div>
       </div>
     </footer>
