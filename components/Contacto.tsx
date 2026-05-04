@@ -98,7 +98,7 @@ export default function Contacto() {
           <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 min-h-[500px] flex flex-col">
             {/* Open in Maps link */}
             <a
-              href="https://www.google.com/maps?q=18.49519007313989,-69.87006862042475"
+              href="https://www.google.com/maps?q=18.488912101259707,-69.88946570286477"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-white px-4 py-2.5 text-sm font-semibold text-[#003087] hover:bg-gray-50 transition-colors border-b border-gray-200 shrink-0"
@@ -109,7 +109,7 @@ export default function Contacto() {
               Abrir en Maps
             </a>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d961.2!2d-69.87006862042475!3d18.49519007313989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI5JzQyLjciTiA2OcKwNTInMTIuMiJX!5e0!3m2!1ses!2sdo!4v1234567890!5m2!1ses!2sdo&markers=color:red%7C18.49519007313989,-69.87006862042475"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d961.2!2d-69.88946570286477!3d18.488912101259707!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI5JzIwLjEiTiA2OcKwNTMnMjIuMSJX!5e0!3m2!1ses!2sdo!4v1234567890!5m2!1ses!2sdo&markers=color:red%7C18.488912101259707,-69.88946570286477"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "460px", flex: 1 }}
