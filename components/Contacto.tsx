@@ -1,4 +1,37 @@
+"use client";
+import { useState } from "react";
+
+type Status = "idle" | "loading" | "success" | "error";
+
 export default function Contacto() {
+  const [status, setStatus]   = useState<Status>("idle");
+  const [errMsg, setErrMsg]   = useState("");
+  const [form, setForm]       = useState({ nombre: "", telefono: "", servicio: "", mensaje: "" });
+
+  const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    setForm((p) => ({ ...p, [k]: e.target.value }));
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!form.nombre.trim() || !form.telefono.trim()) return;
+    setStatus("loading");
+    setErrMsg("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error ?? "Error desconocido");
+      setStatus("success");
+      setForm({ nombre: "", telefono: "", servicio: "", mensaje: "" });
+    } catch (err: unknown) {
+      setErrMsg(err instanceof Error ? err.message : "Error al enviar.");
+      setStatus("error");
+    }
+  }
+
   return (
     <section id="contacto" className="py-24 bg-[#F5F5F5]">
       <div className="max-w-6xl mx-auto px-6">
@@ -68,51 +101,85 @@ export default function Contacto() {
             {/* Quick form */}
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
               <h3 className="font-black text-[#1A1A2E] mb-4">Solicitar Cotización</h3>
-              <form
-                action="https://formspree.io/f/placeholder"
-                method="POST"
-                className="flex flex-col gap-3"
-              >
-                <input
-                  type="text"
-                  name="nombre"
-                  placeholder="Tu nombre"
-                  required
-                  className="border border-gray-200 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#003087] transition-colors"
-                />
-                <input
-                  type="tel"
-                  name="telefono"
-                  placeholder="Teléfono / WhatsApp"
-                  required
-                  className="border border-gray-200 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#003087] transition-colors"
-                />
-                <select
-                  name="servicio"
-                  className="border border-gray-200 rounded px-4 py-2.5 text-sm text-gray-600 focus:outline-none focus:border-[#003087] transition-colors"
-                >
-                  <option value="">Tipo de servicio</option>
-                  <option>Instalación de aires</option>
-                  <option>Mantenimiento preventivo</option>
-                  <option>Mantenimiento correctivo</option>
-                  <option>Electricidad y suministros</option>
-                  <option>Cuartos fríos / Plantas eléctricas</option>
-                  <option>Fumigación</option>
-                  <option>Otro</option>
-                </select>
-                <textarea
-                  name="mensaje"
-                  placeholder="Describe brevemente tu necesidad…"
-                  rows={3}
-                  className="border border-gray-200 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#003087] transition-colors resize-none"
-                />
-                <button
-                  type="submit"
-                  className="bg-[#CC0000] hover:bg-[#aa0000] text-white font-bold py-3 rounded text-sm uppercase tracking-wider transition-colors"
-                >
-                  Enviar Solicitud
-                </button>
-              </form>
+
+              {status === "success" ? (
+                <div className="flex flex-col items-center gap-3 py-8 text-center">
+                  <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center text-3xl">✅</div>
+                  <p className="font-black text-[#1A1A2E]">¡Solicitud enviada!</p>
+                  <p className="text-gray-500 text-sm">Nos pondremos en contacto contigo pronto.</p>
+                  <button
+                    onClick={() => setStatus("idle")}
+                    className="mt-2 text-sm text-[#003087] underline underline-offset-2 hover:text-[#CC0000] transition-colors"
+                  >
+                    Enviar otra solicitud
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                  {/* Honeypot — hidden from real users */}
+                  <input type="text" name="website" value="" onChange={() => {}} className="hidden" tabIndex={-1} aria-hidden="true" />
+
+                  <input
+                    type="text"
+                    placeholder="Tu nombre *"
+                    required
+                    value={form.nombre}
+                    onChange={set("nombre")}
+                    className="border border-gray-200 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#003087] transition-colors"
+                  />
+                  <input
+                    type="tel"
+                    placeholder="Teléfono / WhatsApp *"
+                    required
+                    value={form.telefono}
+                    onChange={set("telefono")}
+                    className="border border-gray-200 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#003087] transition-colors"
+                  />
+                  <select
+                    value={form.servicio}
+                    onChange={set("servicio")}
+                    className="border border-gray-200 rounded px-4 py-2.5 text-sm text-gray-600 focus:outline-none focus:border-[#003087] transition-colors"
+                  >
+                    <option value="">Tipo de servicio</option>
+                    <option>Instalación de aires</option>
+                    <option>Mantenimiento preventivo</option>
+                    <option>Mantenimiento correctivo</option>
+                    <option>Electricidad y suministros</option>
+                    <option>Cuartos fríos / Plantas eléctricas</option>
+                    <option>Fumigación</option>
+                    <option>Otro</option>
+                  </select>
+                  <textarea
+                    placeholder="Describe brevemente tu necesidad…"
+                    rows={3}
+                    value={form.mensaje}
+                    onChange={set("mensaje")}
+                    className="border border-gray-200 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-[#003087] transition-colors resize-none"
+                  />
+
+                  {status === "error" && (
+                    <p className="text-red-600 text-xs bg-red-50 border border-red-200 rounded px-3 py-2">
+                      ⚠️ {errMsg}
+                    </p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === "loading"}
+                    className="bg-[#CC0000] hover:bg-[#aa0000] disabled:bg-gray-400 disabled:cursor-not-allowed text-white font-bold py-3 rounded text-sm uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+                  >
+                    {status === "loading" ? (
+                      <>
+                        <svg className="w-4 h-4 animate-spin" viewBox="0 0 24 24" fill="none">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"/>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 100 16v-4l-3 3 3 3v-4a8 8 0 01-8-8z"/>
+                        </svg>
+                        Enviando…
+                      </>
+                    ) : "Enviar Solicitud"}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
 
