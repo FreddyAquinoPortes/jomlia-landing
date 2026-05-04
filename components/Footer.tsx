@@ -10,7 +10,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <Image src="/logo.svg" alt="Jomlia" width={48} height={48} />
+              <Image src="/logo.png" alt="Jomlia" width={48} height={48} className="object-contain" />
               <div>
                 <div className="font-black text-xl">JOMLIA</div>
                 <div className="text-white/50 text-xs">SOLUTION SERVICES</div>

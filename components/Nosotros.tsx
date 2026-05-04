@@ -48,7 +48,7 @@ export default function Nosotros() {
               <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/85 via-black/45 to-transparent pointer-events-none" />
 
               {/* Dots */}
-              <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              <div className="absolute bottom-[5.5rem] left-1/2 -translate-x-1/2 flex gap-2 z-20">
                 {slides.map((_, i) => (
                   <button
                     key={i}
@@ -73,7 +73,7 @@ export default function Nosotros() {
             </div>
 
             {/* Floating badge */}
-            <div className="absolute -bottom-5 -right-5 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3">
+            <div className="absolute -bottom-5 -right-5 z-30 bg-white rounded-xl shadow-xl p-4 flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-[#003087] flex items-center justify-center text-white text-2xl">
                 ❄️
               </div>
