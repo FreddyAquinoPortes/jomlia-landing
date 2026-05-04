@@ -12,25 +12,34 @@ const slides: Slide[] = [
   { type: "image", src: "/slider/slider2-2.jpg", alt: "Servicio técnico certificado Jomlia" },
 ];
 
+const IMAGE_DURATION = 4500;
+
 export default function SecondarySlider() {
   const [active, setActive] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    const id = setInterval(() => setActive((i) => (i + 1) % slides.length), 4500);
-    return () => clearInterval(id);
-  }, []);
+  const next = () => setActive((i) => (i + 1) % slides.length);
 
-  // Play/pause video based on active state
   useEffect(() => {
     const slide = slides[active];
-    if (slide.type === "video" && videoRef.current) {
-      videoRef.current.play().catch(() => {});
-    } else if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
+
+    if (slide.type === "video") {
+      const video = videoRef.current;
+      if (!video) return;
+      video.currentTime = 0;
+      video.play().catch(() => {});
+      video.addEventListener("ended", next, { once: true });
+      return () => video.removeEventListener("ended", next);
+    } else {
+      // Image — use fixed timer
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.currentTime = 0;
+      }
+      const id = setTimeout(next, IMAGE_DURATION);
+      return () => clearTimeout(id);
     }
-  }, [active]);
+  }, [active]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="relative">
@@ -54,7 +63,7 @@ export default function SecondarySlider() {
               src={s.src}
               alt={s.alt}
               fill
-              sizes="(min-width: 1024px) 33vw, 100vw"
+              sizes="(min-width: 1024px) 50vw, 100vw"
               priority={i === 0}
               className={`object-cover transition-opacity duration-1000 ease-in-out ${
                 i === active ? "opacity-100" : "opacity-0"
@@ -63,16 +72,14 @@ export default function SecondarySlider() {
           ) : null
         )}
 
-        {/* Video slide */}
+        {/* Video slide — no loop so ended fires */}
         {slides.map((s, i) =>
           s.type === "video" ? (
             <video
               key="video"
               ref={videoRef}
               src={s.src}
-              autoPlay
               muted
-              loop
               playsInline
               className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${
                 i === active ? "opacity-100" : "opacity-0"
