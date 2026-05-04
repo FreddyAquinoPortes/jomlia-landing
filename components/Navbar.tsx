@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import TranslateButton from "./TranslateButton";
 
 const links = [
   { href: "#servicios", label: "Servicios" },
@@ -50,6 +51,7 @@ export default function Navbar() {
           >
             Contáctanos
           </a>
+          <TranslateButton />
         </nav>
 
         {/* Mobile hamburger */}

@@ -95,16 +95,28 @@ export default function Contacto() {
           </div>
 
           {/* Map */}
-          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 min-h-[500px]">
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200 min-h-[500px] flex flex-col">
+            {/* Open in Maps link */}
+            <a
+              href="https://www.google.com/maps?q=18.49519007313989,-69.87006862042475"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-white px-4 py-2.5 text-sm font-semibold text-[#003087] hover:bg-gray-50 transition-colors border-b border-gray-200 shrink-0"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+              Abrir en Maps
+            </a>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3784.7!2d-69.9312!3d18.4861!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQXYuIFlvbGFuZGEgR3V6bcOhbiBFc3EuIFNhbWFuw6EgIzEyNg!5e0!3m2!1ses!2sdo!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d961.2!2d-69.87006862042475!3d18.49519007313989!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDI5JzQyLjciTiA2OcKwNTInMTIuMiJX!5e0!3m2!1ses!2sdo!4v1234567890!5m2!1ses!2sdo&markers=color:red%7C18.49519007313989,-69.87006862042475"
               width="100%"
               height="100%"
-              style={{ border: 0, minHeight: "500px" }}
+              style={{ border: 0, minHeight: "460px", flex: 1 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Ubicación Jomlia"
+              title="Ubicación Jomlia Solution Services"
             />
           </div>
         </div>

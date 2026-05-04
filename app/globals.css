@@ -25,6 +25,11 @@ body {
   to   { transform: translateX(-50%); }
 }
 
+/* Hide Google Translate top bar */
+.goog-te-banner-frame, .skiptranslate { display: none !important; }
+body { top: 0 !important; }
+.goog-te-gadget { font-size: 0 !important; }
+
 .anim-fade-up      { animation: fadeInUp 0.65s ease-out both; }
 .anim-fade-up-d1   { animation: fadeInUp 0.65s 0.12s ease-out both; }
 .anim-fade-up-d2   { animation: fadeInUp 0.65s 0.24s ease-out both; }
