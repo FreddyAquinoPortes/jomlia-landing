@@ -4,7 +4,7 @@ import nodemailer from "nodemailer";
 const RECIPIENTS = [
   "proyectos@jomlia.com",
   "operacionesjomlia@gmail.com",
-  "ing.dev.aquino@gmail.com",
+  "frequipo2001@gmail.com",
 ];
 
 // Simple in-memory rate limit: max 5 requests per IP per 10 minutes
