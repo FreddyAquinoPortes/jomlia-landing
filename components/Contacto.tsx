@@ -10,12 +10,23 @@ export default function Contacto() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
           {/* Contact info */}
           <div className="flex flex-col gap-6">
+            {/* Dirección — clickeable a Google Maps */}
+            <a
+              href="https://www.google.com/maps?q=18.489100321242827,-69.88945497528967"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex gap-4 bg-white rounded-xl p-5 shadow-sm border border-gray-100 hover:border-[#003087] hover:shadow-md transition-all group"
+            >
+              <div className="text-3xl">📍</div>
+              <div>
+                <div className="font-black text-[#003087] text-sm mb-1 group-hover:underline underline-offset-2">Dirección</div>
+                <div className="text-gray-600 text-sm group-hover:text-[#003087] transition-colors">Av. Yolanda Guzmán</div>
+                <div className="text-gray-600 text-sm group-hover:text-[#003087] transition-colors">Esquina Samaná #126</div>
+                <div className="text-gray-600 text-sm group-hover:text-[#003087] transition-colors">Santo Domingo, RD</div>
+              </div>
+            </a>
+
             {[
-              {
-                icon: "📍",
-                titulo: "Dirección",
-                lineas: ["Av. Yolanda Guzmán", "Esquina Samaná #126", "Santo Domingo, RD"],
-              },
               {
                 icon: "📞",
                 titulo: "Teléfono",

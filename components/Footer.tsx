@@ -42,8 +42,19 @@ export default function Footer() {
           <div>
             <h4 className="font-black text-sm uppercase tracking-widest mb-4 text-white/80">Contacto</h4>
             <ul className="space-y-3 text-sm text-white/60">
-              <li>📍 Av. Yolanda Guzmán Esq. Samaná #126<br />
-                <span className="ml-6">Santo Domingo, RD</span>
+              <li>
+                <a
+                  href="https://www.google.com/maps?q=18.489100321242827,-69.88945497528967"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-2 hover:text-white transition-colors group"
+                >
+                  <span>📍</span>
+                  <span className="group-hover:underline underline-offset-2">
+                    Av. Yolanda Guzmán Esq. Samaná #126<br />
+                    <span className="ml-0">Santo Domingo, RD</span>
+                  </span>
+                </a>
               </li>
               <li>📞 (849) 658-1250</li>
               <li>✉️ proyectos@jomlia.com</li>
