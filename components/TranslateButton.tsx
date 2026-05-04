@@ -8,6 +8,18 @@ declare global {
   }
 }
 
+/** Dispara el evento de cambio de idioma en el select oculto de Google Translate.
+ *  Google Translate requiere que el evento se dispare DOS veces con bubbles:true. */
+function fireGTranslate(value: string) {
+  const selects = document.querySelectorAll<HTMLSelectElement>(".goog-te-combo");
+  selects.forEach((sel) => {
+    sel.value = value;
+    sel.dispatchEvent(new Event("change", { bubbles: true }));
+    // Segunda llamada: quirk conocido de Google Translate
+    sel.dispatchEvent(new Event("change", { bubbles: true }));
+  });
+}
+
 export default function TranslateButton() {
   const [lang, setLang] = useState<"es" | "en">("es");
   const [ready, setReady] = useState(false);
@@ -17,7 +29,7 @@ export default function TranslateButton() {
     if (initialized.current) return;
     initialized.current = true;
 
-    // Hidden container for the Google Translate widget
+    // Contenedor oculto para el widget de Google Translate
     const div = document.createElement("div");
     div.id = "google_translate_element";
     div.style.display = "none";
@@ -32,45 +44,48 @@ export default function TranslateButton() {
     };
 
     const script = document.createElement("script");
-    script.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    script.src =
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
     script.async = true;
     document.head.appendChild(script);
   }, []);
 
-  const switchTo = (target: "es" | "en") => {
-    const select = document.querySelector<HTMLSelectElement>(".goog-te-combo");
-    if (!select) return;
-    select.value = target === "en" ? "en" : "es";
-    select.dispatchEvent(new Event("change"));
-    setLang(target);
+  // Un solo click alterna entre ES y EN sin importar el estado actual
+  const toggle = () => {
+    const next = lang === "es" ? "en" : "es";
+    fireGTranslate(next);
+    setLang(next);
   };
 
   if (!ready) return null;
 
   return (
-    <div className="flex items-center gap-1 bg-white/15 rounded-full px-1 py-1 border border-white/25">
-      <button
-        onClick={() => switchTo("es")}
-        className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-          lang === "es"
-            ? "bg-white text-[#003087]"
-            : "text-white/80 hover:text-white"
+    /* translate="no" evita que Google Translate traduzca el contenido del botón */
+    <button
+      onClick={toggle}
+      translate="no"
+      className="notranslate flex items-center gap-0.5 bg-white/15 hover:bg-white/25 border border-white/30 rounded-full px-1.5 py-1 transition-all select-none"
+      aria-label={lang === "es" ? "Switch to English" : "Cambiar a Español"}
+    >
+      <span
+        translate="no"
+        className={`notranslate px-2.5 py-0.5 rounded-full text-xs font-black transition-all ${
+          lang === "es" ? "bg-white text-[#003087]" : "text-white/60"
         }`}
-        aria-label="Español"
       >
         ES
-      </button>
-      <button
-        onClick={() => switchTo("en")}
-        className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
-          lang === "en"
-            ? "bg-white text-[#003087]"
-            : "text-white/80 hover:text-white"
+      </span>
+      <span translate="no" className="notranslate text-white/40 text-xs font-light px-0.5">
+        |
+      </span>
+      <span
+        translate="no"
+        className={`notranslate px-2.5 py-0.5 rounded-full text-xs font-black transition-all ${
+          lang === "en" ? "bg-white text-[#003087]" : "text-white/60"
         }`}
-        aria-label="English"
       >
         EN
-      </button>
-    </div>
+      </span>
+    </button>
   );
 }
