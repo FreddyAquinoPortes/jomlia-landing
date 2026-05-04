@@ -31,14 +31,14 @@ export default function Marcas() {
           {marqueeItems.map((m, i) => (
             <div
               key={i}
-              className="flex items-center justify-center px-8 py-4 rounded-xl bg-white border border-gray-200 shadow-sm min-w-[180px] h-[88px] shrink-0 hover:shadow-md transition-shadow"
+              className="flex items-center justify-center px-6 py-4 rounded-xl bg-white border border-gray-200 shadow-sm min-w-[200px] h-[100px] shrink-0 hover:shadow-md transition-shadow"
             >
-              <div className="relative w-36 h-14 flex items-center justify-center">
+              <div className="relative w-44 h-[72px] flex items-center justify-center">
                 <Image
                   src={m.logo}
                   alt={`Logo ${m.nombre}`}
                   fill
-                  sizes="144px"
+                  sizes="176px"
                   className="object-contain"
                   unoptimized={m.logo.endsWith(".svg")}
                 />
