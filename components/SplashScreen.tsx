@@ -95,7 +95,7 @@ export default function SplashScreen({ duration = 3000, onFinish }: Props) {
           return (
             <span
               key={i}
-              className="absolute rounded-full"
+              className="absolute rounded-full particle-ember"
               style={{
                 width: `${size}px`,
                 height: `${size}px`,
@@ -104,7 +104,8 @@ export default function SplashScreen({ duration = 3000, onFinish }: Props) {
                 background:
                   "radial-gradient(circle, #fff5b0 0%, #ffae33 35%, #ff3a1f 70%, transparent 100%)",
                 boxShadow: "0 0 8px 2px rgba(255,120,40,0.6)",
-                animation: `emberFall ${3.5 + (i % 5) * 0.6}s linear ${i * 0.12}s infinite`,
+                ["--p-dur" as string]: `${3.5 + (i % 5) * 0.6}s`,
+                ["--p-delay" as string]: `${i * 0.12}s`,
               }}
             />
           );
@@ -119,14 +120,15 @@ export default function SplashScreen({ duration = 3000, onFinish }: Props) {
         {Array.from({ length: 26 }).map((_, i) => (
           <span
             key={i}
-            className="absolute text-sky-100"
+            className="absolute text-sky-100 particle-snow"
             style={{
               left: `${(i * 53) % 100}%`,
               top: `-20px`,
               fontSize: `${10 + (i % 5) * 3}px`,
               opacity: 0.7 + ((i % 3) * 0.1),
               filter: "drop-shadow(0 0 4px rgba(186,230,253,0.7))",
-              animation: `snowFall ${6 + (i % 6)}s linear ${i * 0.2}s infinite`,
+              ["--p-dur" as string]: `${6 + (i % 6)}s`,
+              ["--p-delay" as string]: `${i * 0.2}s`,
             }}
           >
             ❄
@@ -136,9 +138,10 @@ export default function SplashScreen({ duration = 3000, onFinish }: Props) {
 
       {/* Logo */}
       <div
-        className="relative mb-12 splash-logo"
+        className="relative mb-12"
         style={{
           filter: `drop-shadow(0 0 ${10 + progress * 30}px ${color})`,
+          animation: "logoIn 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both",
         }}
       >
         <Image
@@ -213,32 +216,6 @@ export default function SplashScreen({ duration = 3000, onFinish }: Props) {
         }}
       />
 
-      <style jsx>{`
-        .splash-logo {
-          animation: logoIn 900ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-        }
-        @keyframes logoIn {
-          0%   { opacity: 0; transform: scale(0.85); }
-          60%  { opacity: 1; transform: scale(1.05); }
-          100% { opacity: 1; transform: scale(1); }
-        }
-        @keyframes shimmer {
-          0%   { transform: translateY(0); }
-          100% { transform: translateY(-6px); }
-        }
-        @keyframes emberFall {
-          0%   { transform: translateY(0) translateX(0) scale(0.6); opacity: 0; }
-          10%  { opacity: 1; }
-          50%  { transform: translateY(50vh) translateX(-8px) scale(1); }
-          100% { transform: translateY(110vh) translateX(8px) scale(0.4); opacity: 0; }
-        }
-        @keyframes snowFall {
-          0%   { transform: translateY(0) translateX(0) rotate(0deg); opacity: 0; }
-          10%  { opacity: 1; }
-          50%  { transform: translateY(55vh) translateX(20px) rotate(180deg); }
-          100% { transform: translateY(110vh) translateX(-20px) rotate(360deg); opacity: 0; }
-        }
-      `}</style>
     </div>
   );
 }
