@@ -29,7 +29,7 @@ export default function Nosotros() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
           {/* ── Left: two sliders stacked ── */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 order-2 lg:order-1">
             {/* Slider 1 */}
             <div className="rounded-2xl overflow-hidden aspect-[4/3] relative shadow-xl">
               {slides.map((s, i) => (
@@ -76,7 +76,7 @@ export default function Nosotros() {
           </div>
 
           {/* ── Right: text + valores ── */}
-          <div>
+          <div className="order-1 lg:order-2">
             <span className="text-[#CC0000] text-sm font-bold tracking-widest uppercase">Quiénes somos</span>
             <h2 className="text-4xl md:text-5xl font-black text-[#1A1A2E] mt-2 mb-6 leading-tight">
               Somos tu Socio en el Bienestar y la Comodidad
