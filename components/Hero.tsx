@@ -24,7 +24,7 @@ export default function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-8 anim-fade-up">
           <span className="w-2 h-2 rounded-full bg-[#CC0000] animate-pulse" />
-          <span className="text-white/80 text-sm font-medium">Santo Domingo, República Dominicana</span>
+          <span className="text-white/80 text-sm font-medium">Santo Domingo Este, República Dominicana</span>
         </div>
 
         <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white leading-tight tracking-tight mb-6 anim-fade-up-d1">
