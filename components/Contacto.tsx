@@ -1,4 +1,36 @@
+"use client";
+import { useState } from "react";
+
 export default function Contacto() {
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">("idle");
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+    const form = e.currentTarget;
+    const data = {
+      nombre:   (form.elements.namedItem("nombre")   as HTMLInputElement).value,
+      telefono: (form.elements.namedItem("telefono") as HTMLInputElement).value,
+      servicio: (form.elements.namedItem("servicio") as HTMLSelectElement).value,
+      mensaje:  (form.elements.namedItem("mensaje")  as HTMLTextAreaElement).value,
+    };
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setStatus("ok");
+        form.reset();
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+  }
+
   return (
     <section id="contacto" className="py-24 bg-[#F5F5F5]">
       <div className="max-w-6xl mx-auto px-6">
@@ -47,8 +79,7 @@ export default function Contacto() {
             <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
               <h3 className="font-black text-[#1A1A2E] mb-4">Solicitar Cotización</h3>
               <form
-                action="https://formspree.io/f/placeholder"
-                method="POST"
+                onSubmit={handleSubmit}
                 className="flex flex-col gap-3"
               >
                 <input
@@ -86,10 +117,21 @@ export default function Contacto() {
                 />
                 <button
                   type="submit"
-                  className="bg-[#CC0000] hover:bg-[#aa0000] text-white font-bold py-3 rounded text-sm uppercase tracking-wider transition-colors"
+                  disabled={status === "sending"}
+                  className="bg-[#CC0000] hover:bg-[#aa0000] disabled:opacity-60 text-white font-bold py-3 rounded text-sm uppercase tracking-wider transition-colors"
                 >
-                  Enviar Solicitud
+                  {status === "sending" ? "Enviando..." : "Enviar Solicitud"}
                 </button>
+                {status === "ok" && (
+                  <p className="text-green-600 text-sm font-medium text-center">
+                    ✅ ¡Solicitud enviada! Te contactaremos pronto.
+                  </p>
+                )}
+                {status === "error" && (
+                  <p className="text-red-600 text-sm font-medium text-center">
+                    ❌ Error al enviar. Llámanos al (849) 658-1250.
+                  </p>
+                )}
               </form>
             </div>
           </div>
