@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
 
     await transporter.sendMail({
       from: `"Jomlia Web" <${process.env.SMTP_USER}>`,
-      to: process.env.SMTP_TO || "f.aquino@jomlia.com",
+      to: process.env.SMTP_TO || "f.aquino@jomlia.com, proyectos@jomlia.com, operacionesjomlia@gmail.com",
       subject: `Nueva solicitud de cotización — ${servicio || "Sin especificar"}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px;">
